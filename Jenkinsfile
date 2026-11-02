@@ -9,7 +9,7 @@ pipeline {
         DOCKER_MIGRATION_IMAGE_NAME = 'laxg66/easyshop-migration'
         DOCKER_IMAGE_TAG = "${BUILD_NUMBER}"
         GITHUB_CREDENTIALS = credentials('github-credentials')
-        GIT_BRANCH = "master"
+        GIT_BRANCH = "master" 
     }
     
     stages {
@@ -24,7 +24,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 script {
-                    clone("https://github.com/lax66/tws-e-commerce-app_hackathon.git","master")
+                    clone("https://github.com/Avinash-s/e-commerce-app-hackathon.git","main")
                 }
             }
         }
