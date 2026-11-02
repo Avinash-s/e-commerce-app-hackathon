@@ -11,10 +11,10 @@ data "aws_ami" "os_image" {
   }
 }
 
-resource "aws_key_pair" "deployer" {
-  key_name   = "terra-automate-key"
-  public_key = file("terra-key.pub")
-}
+# resource "aws_key_pair" "deployer" {
+#   key_name   = "terra-automate-key"
+#   public_key = file("terra-key.pub")
+# }
 
 resource "aws_security_group" "allow_user_to_connect" {
   name        = "allow TLS"
@@ -53,7 +53,7 @@ resource "aws_security_group" "allow_user_to_connect" {
 resource "aws_instance" "testinstance" {
   ami                    = data.aws_ami.os_image.id
   instance_type          = var.instance_type
-  key_name               = aws_key_pair.deployer.key_name
+  key_name               = "sonar"
   vpc_security_group_ids = [aws_security_group.allow_user_to_connect.id]
   subnet_id              = module.vpc.public_subnets[0]
   user_data              = file("${path.module}/install_tools.sh")
