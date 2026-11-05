@@ -14,7 +14,7 @@ metadata:
     kubernetes.io/ingress.class: alb
 spec:
   rules:
-  - host: argocd.akhide.qd.je
+  - host: easyshop.akhide.qd.je
     http:
       paths:
       - path: /
